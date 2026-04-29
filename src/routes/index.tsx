@@ -91,10 +91,10 @@ function Index() {
             <h2 className="mt-3 font-display text-4xl md:text-5xl">{t("menu.title")}</h2>
             <p className="mt-4 text-muted-foreground text-lg">{t("menu.sub")}</p>
             <ul className="mt-6 space-y-3 text-sm">
-              <li className="flex justify-between border-b border-dashed border-border pb-3"><span>Montadito "Casa EME"</span><span className="text-primary font-medium">3,80 €</span></li>
-              <li className="flex justify-between border-b border-dashed border-border pb-3"><span>Croquetas caseras (6 ud.)</span><span className="text-primary font-medium">7,50 €</span></li>
-              <li className="flex justify-between border-b border-dashed border-border pb-3"><span>Jamón ibérico</span><span className="text-primary font-medium">14,00 €</span></li>
-              <li className="flex justify-between"><span>Caña Hop House</span><span className="text-primary font-medium">2,80 €</span></li>
+              <li className="flex justify-between border-b border-dashed border-border pb-3"><span>Gambas blancas de Huelva cocidas</span><span className="text-primary font-medium">14,00 €</span></li>
+              <li className="flex justify-between border-b border-dashed border-border pb-3"><span>Taquitos de paleta ibérica 100%</span><span className="text-primary font-medium">12,00 €</span></li>
+              <li className="flex justify-between border-b border-dashed border-border pb-3"><span>Mojama extra de Barbate</span><span className="text-primary font-medium">4,50 / 14,00 €</span></li>
+              <li className="flex justify-between"><span>Montadito de pringá</span><span className="text-primary font-medium">3,50 €</span></li>
             </ul>
             <Button asChild className="mt-7"><Link to="/menu">{t("cta.menu")} <ArrowRight className="ml-1 size-4" /></Link></Button>
           </div>
