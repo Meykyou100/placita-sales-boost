@@ -35,11 +35,13 @@ export const dict: Dict = {
   "feat.vibe.d": { es: "Un rincón tranquilo en el corazón de San Bernardo.", en: "A quiet spot in the heart of San Bernardo." },
 
   "menu.title": { es: "Nuestra carta", en: "Our menu" },
-  "menu.sub": { es: "Tapas, montaditos y cervezas — pensado para compartir.", en: "Tapas, montaditos and beers — made for sharing." },
-  "menu.cat.tapas": { es: "Tapas", en: "Tapas" },
+  "menu.sub": { es: "Producto fresco, recetas andaluzas y mucho cariño. Pensado para compartir.", en: "Fresh produce, Andalusian recipes and lots of care. Made for sharing." },
+  "menu.note": { es: "Precios: tapa / ración. Sujetos a disponibilidad.", en: "Prices: tapa / full plate. Subject to availability." },
+  "menu.cat.classics": { es: "Para empezar", en: "To start" },
+  "menu.cat.sea": { es: "Conservas y aliños", en: "Preserves & marinades" },
+  "menu.cat.iberico": { es: "Ibéricos y quesos", en: "Iberico & cheeses" },
+  "menu.cat.house": { es: "De la casa", en: "House specials" },
   "menu.cat.mont": { es: "Montaditos", en: "Montaditos" },
-  "menu.cat.beer": { es: "Cervezas", en: "Beers" },
-  "menu.cat.drinks": { es: "Cócteles & Vinos", en: "Cocktails & Wines" },
 
   "about.title": { es: "Una placita en San Bernardo", en: "A little square in San Bernardo" },
   "about.p1": {

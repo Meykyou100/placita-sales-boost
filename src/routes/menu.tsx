@@ -6,53 +6,67 @@ export const Route = createFileRoute("/menu")({
   head: () => ({
     meta: [
       { title: "Carta · La Placita Sevilla" },
-      { name: "description", content: "Carta de tapas, montaditos, cervezas y vinos en La Placita, San Bernardo." },
+      { name: "description", content: "Carta de tapas, montaditos, ibéricos y conservas en La Placita, San Bernardo. Producto fresco y andaluz." },
       { property: "og:title", content: "Carta · La Placita Sevilla" },
     ],
   }),
   component: MenuPage,
 });
 
-type Item = { name: string; desc?: string; price: string };
+type Item = { name: string; price: string };
 
 const sections = (t: (k: any) => string): { title: string; items: Item[] }[] => [
   {
-    title: t("menu.cat.tapas"),
+    title: t("menu.cat.classics"),
     items: [
-      { name: "Croquetas caseras", desc: "Jamón ibérico · 6 ud.", price: "7,50 €" },
-      { name: "Jamón ibérico de bellota", price: "14,00 €" },
-      { name: "Patatas bravas", desc: "Salsa brava de la casa", price: "5,50 €" },
-      { name: "Tortilla española", desc: "Cremosa, al corte", price: "4,80 €" },
-      { name: "Ensaladilla rusa", price: "6,00 €" },
-      { name: "Pimientos de Padrón", price: "5,00 €" },
+      { name: "Chicharrones fritos al momento", price: "4,00 € / 10,00 €" },
+      { name: "Caracoles (en temporada)", price: "3,50 € / 7,50 €" },
+      { name: "Patatas fritas de Umbrete", price: "2,50 €" },
+      { name: "Almendras fritas", price: "3,50 €" },
+      { name: "Gordales cachonditas", price: "3,50 €" },
+      { name: "Patatas bravas", price: "6,00 €" },
+    ],
+  },
+  {
+    title: t("menu.cat.sea"),
+    items: [
+      { name: "Gilda de anchoas de Santoña", price: "3,50 €" },
+      { name: "Gambas blancas de Huelva cocidas", price: "14,00 €" },
+      { name: "Ensaladilla de melva", price: "4,00 € / 10,00 €" },
+      { name: "Papas aliñadas con melva", price: "4,00 € / 10,00 €" },
+      { name: "Atún encebollado", price: "4,00 € / 10,00 €" },
+      { name: "Asaduras de ternera aliñadas", price: "4,00 € / 10,00 €" },
+      { name: "Zanahorias aliñadas", price: "4,00 € / 10,00 €" },
+    ],
+  },
+  {
+    title: t("menu.cat.iberico"),
+    items: [
+      { name: "Taquitos de paleta ibérica 100%", price: "12,00 €" },
+      { name: "Taquitos de salchichón ibérico", price: "4,00 € / 12,00 €" },
+      { name: "Queso viejo de oveja", price: "4,00 € / 12,00 €" },
+      { name: "Tacos de mechá", price: "4,00 € / 10,00 €" },
+      { name: "Mojama extra de Barbate", price: "4,50 € / 14,00 €" },
+    ],
+  },
+  {
+    title: t("menu.cat.house"),
+    items: [
+      { name: "Cazuelita de gambas al ajillo", price: "12,00 €" },
+      { name: "Pollo frito", price: "4,00 € / 12,00 €" },
+      { name: "Boquerones en adobo", price: "4,00 € / 12,00 €" },
+      { name: "Guiso del día", price: "4,00 € / 12,00 €" },
     ],
   },
   {
     title: t("menu.cat.mont"),
     items: [
-      { name: "Montadito Casa EME", desc: "Lomo, queso, tomate", price: "3,80 €" },
-      { name: "Montadito de pringá", price: "3,50 €" },
-      { name: "Montadito de salmón ahumado", price: "4,20 €" },
-      { name: "Montadito vegetal", price: "3,20 €" },
-    ],
-  },
-  {
-    title: t("menu.cat.beer"),
-    items: [
-      { name: "Caña Cruzcampo", price: "2,20 €" },
-      { name: "Hop House 13", desc: "Lager irlandesa", price: "2,80 €" },
-      { name: "Alhambra Reserva 1925", price: "3,20 €" },
-      { name: "IPA artesana del mes", price: "3,80 €" },
-      { name: "Tercio sin alcohol", price: "2,50 €" },
-    ],
-  },
-  {
-    title: t("menu.cat.drinks"),
-    items: [
-      { name: "Tinto de verano", price: "3,00 €" },
-      { name: "Copa de Rioja Crianza", price: "3,80 €" },
-      { name: "Gin Tonic Premium", price: "8,00 €" },
-      { name: "Mojito clásico", price: "7,50 €" },
+      { name: "Pringá", price: "3,50 €" },
+      { name: "Lomo en salsa", price: "3,50 €" },
+      { name: "Filetito a la plancha con salsa verde", price: "3,50 €" },
+      { name: "Chorizo picante con queso viejo", price: "3,50 €" },
+      { name: "Melva canutera con morrón", price: "4,00 €" },
+      { name: "Gambas alioli", price: "4,00 €" },
     ],
   },
 ];
@@ -69,10 +83,11 @@ function MenuPage() {
           <span className="text-xs uppercase tracking-[0.3em] text-primary">La Placita</span>
           <h1 className="mt-3 font-display text-5xl md:text-6xl">{t("menu.title")}</h1>
           <p className="mt-4 text-muted-foreground">{t("menu.sub")}</p>
+          <p className="mt-2 text-sm text-muted-foreground italic">{t("menu.note")}</p>
         </div>
       </section>
 
-      <section className="mx-auto max-w-5xl px-5 pb-20 grid gap-12 md:grid-cols-2">
+      <section className="mx-auto max-w-5xl px-5 pb-20 grid gap-8 md:grid-cols-2">
         {data.map((sec) => (
           <div key={sec.title} className="rounded-2xl bg-card border border-border p-7 shadow-soft">
             <h2 className="font-display text-3xl text-primary">{sec.title}</h2>
@@ -80,11 +95,8 @@ function MenuPage() {
             <ul className="mt-6 space-y-4">
               {sec.items.map((it) => (
                 <li key={it.name} className="flex justify-between gap-4 border-b border-dashed border-border pb-3 last:border-0">
-                  <div>
-                    <div className="font-medium">{it.name}</div>
-                    {it.desc && <div className="text-sm text-muted-foreground">{it.desc}</div>}
-                  </div>
-                  <div className="font-display text-lg text-primary whitespace-nowrap">{it.price}</div>
+                  <div className="font-medium">{it.name}</div>
+                  <div className="font-display text-base text-primary whitespace-nowrap">{it.price}</div>
                 </li>
               ))}
             </ul>
