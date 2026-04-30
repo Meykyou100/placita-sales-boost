@@ -1,0 +1,24 @@
+## Netlify deployment config for La Placita
+## This builds a static SPA (no SSR) and serves it from /dist.
+## Routing is client-side via TanStack Router; the redirect rule below
+## sends every unknown path back to index.html so deep links + refresh work.
+
+[build]
+  command = "npm run build:netlify"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# SPA fallback — required for client-side routing on Netlify.
+# (Also duplicated in public/_redirects as a safety net.)
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Long-cache hashed build assets
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
