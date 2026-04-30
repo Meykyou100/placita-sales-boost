@@ -101,15 +101,36 @@ function Index() {
         </div>
       </section>
 
-      {/* REVIEW */}
-      <section className="mx-auto max-w-4xl px-5 py-20 text-center">
-        <div className="flex justify-center mb-4">
-          {Array.from({ length: 5 }).map((_, i) => <Star key={i} className="size-6 fill-accent text-accent" />)}
+      {/* REVIEWS */}
+      <section className="mx-auto max-w-7xl px-5 py-20">
+        <div className="text-center max-w-2xl mx-auto mb-12">
+          <span className="text-xs uppercase tracking-[0.3em] text-primary">Google Reviews</span>
+          <h2 className="mt-3 font-display text-4xl md:text-5xl">Lo que dicen nuestros clientes</h2>
+          <div className="mt-4 flex items-center justify-center gap-2">
+            <div className="flex">
+              {Array.from({ length: 5 }).map((_, i) => <Star key={i} className={`size-5 ${i < 4 ? "fill-accent text-accent" : "text-accent"}`} />)}
+            </div>
+            <span className="text-sm text-muted-foreground"><strong className="text-foreground">4,3</strong> · 163 reseñas</span>
+          </div>
         </div>
-        <blockquote className="font-display text-2xl md:text-3xl leading-snug">
-          “Lieu convivial et calme pour la détente, soit pour prendre un verre soit pour manger. Le service et la cuisine sont excellents.”
-        </blockquote>
-        <div className="mt-5 text-sm text-muted-foreground">— Samir Serghini · Local Guide · Google Reviews</div>
+        <div className="grid gap-6 md:grid-cols-3">
+          {[
+            { q: "Lieu convivial et calme pour la détente, soit pour prendre un verre soit pour manger. Le service et la cuisine sont excellents.", a: "Samir Serghini", role: "Local Guide" },
+            { q: "Montadito \"Casa EME\" & Hop House beer — that's the way you do it here. Cocina 5, Servicio 5, Ambiente 5.", a: "Julian Macias", role: "76 reseñas en Sevilla" },
+            { q: "Tapas auténticas, producto fresco y trato familiar. Volveremos seguro cada vez que pasemos por San Bernardo.", a: "María L.", role: "Cliente habitual" },
+          ].map((r, i) => (
+            <figure key={i} className="rounded-2xl border border-border bg-card p-7 shadow-soft">
+              <div className="flex mb-3">
+                {Array.from({ length: 5 }).map((_, j) => <Star key={j} className="size-4 fill-accent text-accent" />)}
+              </div>
+              <blockquote className="text-foreground/90 leading-relaxed">"{r.q}"</blockquote>
+              <figcaption className="mt-5 pt-4 border-t border-border">
+                <div className="font-medium">{r.a}</div>
+                <div className="text-xs text-muted-foreground">{r.role}</div>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
       </section>
 
       {/* CTA */}
